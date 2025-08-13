@@ -1,35 +1,28 @@
-here--// Services
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 local character = player.Character or player.CharacterAdded:Wait()
 
--- ===== CONFIG =====
 local DUPLICATE_PHRASE = "You cannot trade this pet since it is duplicated"
 local REPLACEMENT_TEXT = "Your trade is processing, please wait until your trade finalizes before creating another one."
-local REPLACEMENT_COLOR = Color3.fromRGB(255, 215, 0) -- Gold yellow
--- ==================
+local REPLACEMENT_COLOR = Color3.fromRGB(255, 215, 0)
 
--- Helpers
 local function containsIgnoreCase(haystack, needle)
 	if not haystack or not needle then return false end
 	return string.find(string.lower(haystack), string.lower(needle)) ~= nil
 end
 
--- Replace GUI warning
 local function fixWarningLabelProps(desc)
 	pcall(function()
 		desc.Text = REPLACEMENT_TEXT
-		desc.TextColor3 = REPLACEMENT_COLOR -- gold
-		desc.Font = Enum.Font.FredokaOne -- bold
+		desc.TextColor3 = REPLACEMENT_COLOR
+		desc.Font = Enum.Font.FredokaOne
 		desc.TextScaled = false
 		desc.TextSize = 17
 		desc.TextWrapped = true
 		desc.TextXAlignment = Enum.TextXAlignment.Center
 		desc.TextYAlignment = Enum.TextYAlignment.Center
 		desc.Size = UDim2.new(0, 330, 0, 50)
-
-		-- Black stroke sa mismong gilid ng letra
 		desc.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
 		desc.TextStrokeTransparency = 0
 	end)
@@ -57,7 +50,6 @@ local function hookGuiReplacement()
 	end)
 end
 
--- Pet detection
 local function getEquippedPetTool()
 	character = player.Character or player.CharacterAdded:Wait()
 	for _, tool in pairs(character:GetChildren()) do
@@ -80,7 +72,32 @@ local function removeDupeTagFrom(tool)
 	end
 end
 
--- GUI Setup
+local function showTradeCompleted()
+	local screenGui = Instance.new("ScreenGui")
+	screenGui.Name = "FakeTradeUI"
+	screenGui.Parent = playerGui
+
+	local label = Instance.new("TextLabel")
+	label.Size = UDim2.new(0, 350, 0, 50)
+	label.Position = UDim2.new(0.5, -175, 0.5, -25)
+	label.BackgroundTransparency = 1
+	label.Text = "Trade completed!"
+	label.TextColor3 = Color3.fromRGB(255, 255, 255)
+	label.Font = Enum.Font.FredokaOne
+	label.TextScaled = true
+	label.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+	label.TextStrokeTransparency = 0
+	label.Parent = screenGui
+
+	game:GetService("Debris"):AddItem(screenGui, 3)
+end
+
+playerGui.DescendantAdded:Connect(function(desc)
+	if desc:IsA("TextLabel") and containsIgnoreCase(desc.Text, "trade completed") then
+		showTradeCompleted()
+	end
+end)
+
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "RemoveTagGUI"
 screenGui.ResetOnSpawn = false
@@ -133,7 +150,6 @@ footer.TextSize = 12
 footer.TextColor3 = Color3.fromRGB(255, 255, 255)
 footer.Text = "Tiktok: @yawiyawiyawiz"
 
--- Logic
 local enabled = false
 local connection
 
@@ -145,20 +161,16 @@ toggleBtn.MouseButton1Click:Connect(function()
 			toggleBtn.Text = "Enabling in " .. i .. "s"
 			task.wait(1)
 		end
-
 		statusLabel.Text = "Status: Enabled"
 		enabled = true
 		hookGuiReplacement()
-
 		connection = character.ChildAdded:Connect(function(child)
 			if enabled and child:IsA("Tool") then
 				removeDupeTagFrom(child)
 			end
 		end)
-
 		local current = getEquippedPetTool()
 		if current then removeDupeTagFrom(current) end
-
 		toggleBtn.Text = "Disable Remove Dupe Tag"
 		toggleBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	else
